@@ -25,12 +25,18 @@ class uploadobs {
                   obsServer,
                   obsBucket,
                   autoDeleteFile = false, // 删除文件
-                  distName = 'dist'
+                  distName = 'dist',
+                  fileSuffix=[] //上传文件后缀
             } = this.option
             const object = this.option
+            
+            let suffix = ''
+            if(fileSuffix && fileSuffix.length != 0 ){
+                  suffix = `.?(${fileSuffix.join('|')})`  // .?(js|css|map|png|jpg|svg|woff|woff2|ttf|eot|html|gz)
+            }
 
             this.pre = path.resolve(process.cwd(), `./${distName}/`) + (isWindow ? '\\' : '')
-            this.allFiles = glob.sync(`${path.join(process.cwd(), `./${distName}/**/*.?(js|css|map|png|jpg|svg|woff|woff2|ttf|eot|html)`)}`)
+            this.allFiles = glob.sync(`${path.join(process.cwd(), `./${distName}/**/*${suffix}`)}`)
             this.pre = this.pre.replace(/\\/g, '/')
             for (const key in object) {
                   if (object.hasOwnProperty(key) && key != 'prefix' && key != 'autoDeleteFile') {
