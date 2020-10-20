@@ -13,13 +13,14 @@ upload.js
 ```
 const uploadObs =  require('upload-obs')
 const xxx = new uploadObs({
-  prefix: '', //非必填 
+  prefix: '', //非必填  指定桶中的某个文件路径 注意也 / 结束
   accessKeyId: '',//必填
   secretAccessKey: '', //必填
   obsServer: '',//必填 服务器 https://developer.huaweicloud.com/endpoint
   obsBucket: '', //必填
   autoDeleteFile:true,//非必填，删除桶数据
   distName:'dist',//非必填 上传的文件夹名称  默认build之后的文件dist.
+  fileSuffix:['js','css'] //非必填  上传文件后缀 默认上传所有
 })
 xxx.init()
 ```
