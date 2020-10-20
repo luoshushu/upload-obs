@@ -1,0 +1,19 @@
+{
+  "name": "upload-obs",
+  "version": "1.0.7",
+  "description": "obs上传",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "obs"
+  ],
+  "author": "susonglin",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "esdk-obs-nodejs": "^3.20.7",
+    "glob": "^7.1.6"
+  }
+}
